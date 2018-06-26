@@ -10,7 +10,7 @@ function sumar(a,b) {
 }
 
 function mostrar(pDato) {
-    console.log(pDato)
+    alert(pDato)
 }
 
 function main() {
