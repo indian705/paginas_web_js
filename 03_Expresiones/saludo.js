@@ -51,3 +51,22 @@ function probar () {
 }
 
 probar()
+
+// Ejemplo del uso de los falsies en un IF
+
+let a = []
+
+//if ( a.length != 0) {
+if (a.length) {
+    probar(a)
+} else {
+    console.log('Adios')
+}
+
+
+// if ( a.length == 0) {
+if (!a.length) {
+    console.log('Adios')
+} else {
+    probar(a)
+}
