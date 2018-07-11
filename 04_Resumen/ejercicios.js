@@ -4,7 +4,7 @@
  * 
  */
 
-function calc_Numeros_Primos(){
+function calcNumerosPrimos(){
     for (let i = 1; i < 100; i++) {
         let resul=`El número ${i} es primo`
         let tipo='primo'
@@ -16,14 +16,24 @@ function calc_Numeros_Primos(){
                 
             }
         }
-        if (tipo='primo'){
+        if (tipo=='primo'){
             /* return resul */
             console.log(resul)
         }
-
-
     }
 }
 
-calc_Numeros_Primos()
+function calcSerieFibonacci(lim){
+    let aSerie=[0,1]
+    let i=1
+    while (aSerie[i]<lim) {
+        i++
+        aSerie[i] = aSerie[i-1]+aSerie[i-2]        
+    }         
+    console.log(aSerie)
+}
+
+//calcNumerosPrimos()
+calcSerieFibonacci(20)
+
  
