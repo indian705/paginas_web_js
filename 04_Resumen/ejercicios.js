@@ -36,4 +36,49 @@ function calcSerieFibonacci(lim){
 //calcNumerosPrimos()
 calcSerieFibonacci(20)
 
- 
+function buscarNombres(nombre){
+    let aLista=['Fernando','Isabel','Juana','Carlos','Felipe','Luis','Jose','Amadeo','Alfonso','Juan Carlos']
+    let mensaje = `El nombre ${nombre} no está en la lista`
+    for (const i in aLista) {
+        if (nombre.toLowerCase()==aLista[i].toLowerCase()) {
+            mensaje = `El nombre ${nombre} está en la lista`
+            break
+        }
+    }
+    return mensaje
+} 
+
+console.log(buscarNombres('Gema'))
+
+function quitarTildes(string){
+    let aDatos=string.split('')
+    for (const key in aDatos) {
+        switch (aDatos[key].toLowerCase()) {
+            case 'á':
+                aDatos[key] = 'a'
+                break;
+            case 'é':
+                aDatos[key] = 'e'
+                break;
+            case 'í':
+                aDatos[key] = 'i'
+                break;
+            case 'ó':
+                aDatos[key] = 'o'
+                break;
+            case 'ú':
+                aDatos[key] = 'u'
+                break;
+            default:
+                
+                break;                           
+        }
+    }
+    return aDatos.join('')  
+
+}
+
+let texto='cantar'
+console.log(quitarTildes(texto))
+texto='canción'
+console.log(quitarTildes(texto))
