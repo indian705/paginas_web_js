@@ -6,12 +6,12 @@ let oVuelo = {
         time: '',
         ciudad: ''
     },
-    arrival: {
+    arival: {
         clave_IATA : '',
         time: '',
         ciudad: ''
     },
-    mostrarEnBruto: function(){
+    mostrarEnBruto: function() {
         console.log(this)
     }
 }
@@ -20,20 +20,45 @@ oVuelo.mostrar = function (oDatos = this) {
     for (const key in oDatos) {
         if (oDatos.hasOwnProperty(key) && (typeof oDatos[key] !== 'function')) {
             if (typeof oDatos[key] === 'object') { 
-                console.log(`Propiedades de ${key}: `)
+                console.log(`Las propiedades de ${key} son: `)
                 this.mostrar(oDatos[key])
             } else {
-                console.log(`${key}: ${oDatos[key]}`)
+                console.log(`La propiedad ${key} vale ${oDatos[key]}`)
             }    
         }    
     }
 }
 
-// oVuelo.mostrar()
+// Los objetos tienen una propiedad [[Prototype]]
+// accesible con Object.getPrototypeOf() 
+
+console.log('prototype: ', Object.getPrototypeOf( oVuelo ))
+
+
+// Objetos creados mediante Object.create
+// Implementación en ES5 del patrón de 
+// herencia prototípica (prototypical inheritance)
+// planteado por Douglas Crockford
 
 let oVuelo1 = Object.create(oVuelo)
-oVuelo1.mostrarEnBruto()
+console.log('*** El objeto creado ***')
+console.dir(oVuelo1)
+console.log('type; ', typeof oVuelo1)
+console.log('¿Instancia de Object? ', oVuelo instanceof Object);
 
-console.log(typeof oVuelo1)
-console.log(oVuelo instanceof Object)
+// inspect the object sub-type
+console.log('prototype type: ', Object.prototype.toString.call( oVuelo1 ))
+console.log('prototype: ', Object.getPrototypeOf( oVuelo1 ))
+console.log('prototype constructor: ', Object.prototype.constructor)
 
+
+
+// modificando una propiedad que existe en el prototipo : shadowing
+oVuelo1.airline = "Iberia"
+console.dir(oVuelo1)
+
+// Objeto clonado mediante Object.assign
+let oVuelo2 = {}
+Object.assign(oVuelo2, oVuelo)
+console.log('*** El objeto clonado ***')
+console.dir(oVuelo2)
