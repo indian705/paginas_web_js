@@ -35,4 +35,5 @@ function app () {
   
 }
 
+//window.addEventListener('load', app)
 document.addEventListener('DOMContentLoaded', app)
