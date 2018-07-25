@@ -34,7 +34,7 @@ class App {
         let y = window.screen.availHeight/2 - 150
 
         if (!this.oVentana) {
-            this.oVentana = window.open('', '', 
+            this.oVentana = open('', '', 
                         `toolbar=yes, 
                         scrollbars=no, 
                         resizable=no, 
