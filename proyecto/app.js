@@ -8,6 +8,7 @@ class App {
         */
 
        this.aNodosMenu = document.querySelectorAll('.menu-desk a')
+       //this.aNodosMenu = document.querySelectorAll('.menu-desk a:not(:last-child)')
        this.aNodosSection = document.querySelectorAll('main section')
 
         this.header = document.querySelector('header')
@@ -35,7 +36,8 @@ class App {
             (nodoMenu) => {
                 //console.log(nodoMenu)
                 nodoMenu.addEventListener('click', this.navegar.bind(this))}
-        ) 
+        )
+        //window.addEventListener('resize',this.calcularOffsets.bind(this)) 
         
     }   
 
@@ -107,8 +109,9 @@ class App {
     calcularOffsets(){
         this.aNodosSection.forEach(
             (section) => {
-                
-                this.aOffset.push(section.offsetTop-200)
+                //console.dir(section.offsetParent) para comprobar que todas las secciones como ancestro el body de cara a offset
+                this.aOffset.push(section.offsetTop)
+                //this.aOffset.push(section.offsetTop-200)
             }
         )
         this.aOffset[0] = 0
