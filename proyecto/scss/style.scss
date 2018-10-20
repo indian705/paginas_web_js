@@ -178,6 +178,18 @@ div.tabla{
     }
 }    
 
+div.carousel>figure>img {
+    display: none;
+    margin: 0px;
+}
+
+div.carousel>figure.visible>img {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    margin: 0px auto;
+}
+
 //Se pone en cursiva la empresa propietaria del iframe
 .aeromedia{
     font-style: italic;
@@ -232,7 +244,25 @@ div.return{
             transform: scale(1.2);
         }        
     }
-}    
+}
+
+
+
+div.div-top {
+    position: fixed;
+    right: 3rem;
+    bottom: 3rem;
+    padding: 0.5rem;
+    border-radius:30%;
+    opacity: 0.6; 
+    background-color: $color_main; 
+    .btn-top{
+        font-size:1rem;
+        cursor:pointer;
+        color:$color_back;
+    }
+    
+}
 
 //El footer se diseña con display:flex para incluir los datos de address y las redes sociales.
 footer{    
