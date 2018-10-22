@@ -58,6 +58,8 @@ class App {
 
     desplegarMenu(){
         this.contenidoHamburguesa.classList.toggle('hide-menu')
+        this.contenidoHamburguesa.classList.add('menu-mobilesticky')
+        /* this.contenidoHamburguesa.parentNode.classList.add('menu-mobilesticky') */
 
     }
 

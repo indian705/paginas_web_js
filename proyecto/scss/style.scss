@@ -91,8 +91,10 @@ section{
     }
 }
 
+
+
 //Éste es el menú en el formato mobile, situado al final del documento
-nav.menu-mobile{
+nav.menu-mobile {
     background-color: $color_main;
     color: $color_back;
 }
@@ -128,6 +130,13 @@ nav.menu-mobile, nav.menu-desk{
     height:3rem;
     background-image:url('../assets/abstract-sky-background.jpg');
     background-color:$color_back;
+}
+
+.menu-mobilesticky a{
+    background-color: $color_main;
+    color: $color_back;
+    margin-top:0.3rem;
+    margin-bottom:0.3rem;
 }
 
 .bajo-header {
@@ -311,25 +320,32 @@ footer{
     }   */
 }
 
-.control-group{
-    display: inline-block;    
-    width: 100%;
-    margin-top: 0.3rem;
-    margin-bottom: 0.3rem;
-    padding:1rem;
-    input{
-        margin-top:0.5rem;
-    }
-}
+
+
 form{
     width:100%;
     margin-left:auto;
     margin-right:auto;
+    fieldset{
+        margin-top:1rem;
+        margin-bottom:1rem;
+        .control-group{
+        
+            width: 100%;
+            margin-top: 0.1rem;
+            margin-bottom: 0.5rem;
+            
+            input, label{
+                display:block;
+                margin-top:0.2rem;
+        
+            }
+        textarea{
+            max-width: 95%;
+        }
+    }
 }
-
-form fieldset{
-    margin-top:1rem;
-    margin-bottom:1rem;
+    
 }
 
   
@@ -465,7 +481,7 @@ form fieldset{
     }
 
     /* La sección de Geografía se divide en dos columnas */
-    .wrapper{
+    /* .wrapper{
         display:flex;
         justify-content: space-between;
         p:nth-of-type(1)::first-letter{
@@ -474,7 +490,7 @@ form fieldset{
         div{
             padding:1rem;
         }
-    }
+    } */
     //En este tamaño ya no interesa que crezca el video, así que se queda fijo con sus dimensiones
     .video_container{
         height: $height_video;
