@@ -9,10 +9,6 @@ $ratio_video:percentage($height_video/$width_video);
     box-sizing: border-box;
 }
 
-html{
-    scroll-behavior: smooth;
-}
-
 /* El fondo del body es una imagen en tonos azules, por eso se ha puesto background-color de azul claro por si hay problemas y no se carga */
 body{
     background-image:url('../assets/abstract-sky-background.jpg');

@@ -38,11 +38,11 @@ class App {
         this.itemHamburguesa.forEach(
             (item)=>{item.addEventListener('click', this.replegarMenu.bind(this))}
         )
-        /* this.aNodosMenu.forEach(
+        this.aNodosMenu.forEach(
             (nodoMenu) => {
                 //console.log(nodoMenu)
                 nodoMenu.addEventListener('click', this.navegar.bind(this))}
-        ) */
+        )
         //window.addEventListener('resize',this.calcularOffsets.bind(this)) 
         
     }   
@@ -57,34 +57,9 @@ class App {
     }
     
     scrollDetect (oE) {
-        
         let position = oE.target.scrollingElement.scrollTop
-        let index = 0
-        /* let position = window.scrollY
-         
-        /* this.aNodosSection.forEach(
-            (section) => {
-                //console.dir(section.offsetParent) para comprobar que todas las secciones como ancestro el body de cara a offset
-                //this.aOffset.push(section.offsetTop-this.navHeight)
-                
-                this.aOffset.push(section.offsetTop)
-            }
-        )
-        this.aOffset[0] = 0 */
-
+        let index
         this.aOffset.every(
-            (offset, i) => {
-                if (position >= offset) {
-                    index = i
-                    return true
-                } else {return false}
-               
-
-            }
-        )
-         
-        
-        /* this.aOffset.every(
             (offset, i) => {
                 if (position >= offset) {
                     
@@ -97,8 +72,8 @@ class App {
                
 
             }
-        ) */
-        //console.log(index)
+        )
+        console.log(index)
         if (this.seccionActiva != index) {
             //console.log('Estoy dentro')
             //console.dir(this.aNodosMenu)
@@ -107,10 +82,7 @@ class App {
                     //console.dir(nodoMenu)
                     nodoMenu.classList.remove('active')}
             )
-            console.log('Hola')
-            console.dir(this.aNodosMenu)
-            console.log(index)
-            console.dir(this.aNodosMenu[index])
+            //console.dir(this.aNodosMenu)
             this.aNodosMenu[index].classList.add('active')   
             this.seccionActiva = index
         }
@@ -155,11 +127,11 @@ class App {
                 //console.dir(section.offsetParent) para comprobar que todas las secciones como ancestro el body de cara a offset
                 //this.aOffset.push(section.offsetTop-this.navHeight)
                 
-                this.aOffset.push(section.offsetTop-100)
+                this.aOffset.push(section.offsetTop)
             }
         )
         this.aOffset[0] = 0
-        //console.log(this.aOffset)
+        console.log(this.aOffset)
     }
 
     subir(oE) {
@@ -194,6 +166,5 @@ class App {
     }
 }
 
-//document.addEventListener('DOMContentLoaded', ()=> {new  App()})
-window.addEventListener('load', ()=> {new  App()})
+document.addEventListener('DOMContentLoaded', ()=> {new  App()})
 
