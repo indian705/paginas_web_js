@@ -9,7 +9,7 @@ class App {
 
        //this.aNodosMenu = document.querySelectorAll('.menu-desk a')
        //this.navHeight = document.querySelector('.menu-desk').offsetHeight
-       this.aNodosMenu = document.querySelectorAll('.menu-desk a:not(:last-child)')
+       this.aNodosMenu = document.querySelectorAll('.menu-desk a')
        this.aNodosSection = document.querySelectorAll('main section')
 
         this.header = document.querySelector('header')
@@ -62,6 +62,10 @@ class App {
         this.aOffset.every(
             (offset, i) => {
                 if (position >= offset) {
+                    
+                    console.log(offset)
+                    console.log(i)
+                    console.log(position)
                     index = i
                     return true
                 } else {return false}
@@ -69,11 +73,16 @@ class App {
 
             }
         )
-        //console.log(index)
+        console.log(index)
         if (this.seccionActiva != index) {
+            //console.log('Estoy dentro')
+            //console.dir(this.aNodosMenu)
             this.aNodosMenu.forEach(
-                (nodoMenu) => {nodoMenu.classList.remove('active')}
+                (nodoMenu) => {
+                    //console.dir(nodoMenu)
+                    nodoMenu.classList.remove('active')}
             )
+            //console.dir(this.aNodosMenu)
             this.aNodosMenu[index].classList.add('active')   
             this.seccionActiva = index
         }
@@ -117,11 +126,12 @@ class App {
             (section) => {
                 //console.dir(section.offsetParent) para comprobar que todas las secciones como ancestro el body de cara a offset
                 //this.aOffset.push(section.offsetTop-this.navHeight)
-                this.aOffset.push(section.offsetTop-70)
+                
+                this.aOffset.push(section.offsetTop)
             }
         )
         this.aOffset[0] = 0
-        //console.log(this.aOffset)
+        console.log(this.aOffset)
     }
 
     subir(oE) {
