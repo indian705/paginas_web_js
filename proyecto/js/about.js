@@ -7,6 +7,8 @@ class App {
         //this.parrafoHeader = document.querySelector('header p')
         
 
+       //this.aNodosMenu = document.querySelectorAll('.menu-desk a')
+       //this.navHeight = document.querySelector('.menu-desk').offsetHeight
        this.aNodosMenu = document.querySelectorAll('.menu-desk a')
        this.aNodosSection = document.querySelectorAll('main section')
 
@@ -36,23 +38,18 @@ class App {
         this.itemHamburguesa.forEach(
             (item)=>{item.addEventListener('click', this.replegarMenu.bind(this))}
         )
-        this.aNodosMenu.forEach(
+        /* this.aNodosMenu.forEach(
             (nodoMenu) => {
                 //console.log(nodoMenu)
                 nodoMenu.addEventListener('click', this.navegar.bind(this))}
-        )
+        ) */
         //window.addEventListener('resize',this.calcularOffsets.bind(this)) 
 
         this.aNodosMenu.forEach(
             (nodoMenu) => {
-                //console.dir(nodoMenu)
                 nodoMenu.classList.remove('active')}
         )
-        /* console.log('Hola')
-        console.dir(this.aNodosMenu)
-        console.log(index)
-        console.dir(this.aNodosMenu[index]) */
-        this.aNodosMenu[index].classList.add('active')   
+        this.aNodosMenu[5].classList.add('active') 
         
     }   
 
@@ -154,7 +151,8 @@ class App {
             left: 0, 
             behavior: 'smooth'
         })
-        }       
+        }
+        
         
 
     }
@@ -165,7 +163,7 @@ class App {
                 //console.dir(section.offsetParent) para comprobar que todas las secciones como ancestro el body de cara a offset
                 //this.aOffset.push(section.offsetTop-this.navHeight)
                 
-                this.aOffset.push(section.offsetTop-170)
+                this.aOffset.push(section.offsetTop-100)
             }
         )
         this.aOffset[0] = 0

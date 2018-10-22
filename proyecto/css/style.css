@@ -104,6 +104,7 @@ nav.menu-mobile a.active, nav.menu-mobile a:hover, nav.menu-desk a.active, nav.m
 
 .sticky-header {
   position: fixed;
+  z-index: 10;
   top: 0;
   left: 0;
   right: 0;
@@ -253,54 +254,53 @@ footer {
   margin-left: auto;
   margin-right: auto;
   display: flex;
-  justify-content: space-around;
+  /* ul{        
+      li{
+          display:inline-block;
+          padding-right: 0.2rem;
+          padding-left: 0.5rem;
+          margin-bottom: 10px;  
+          //Se da estilo a los iconos de redes sociales procedentes de Font Awesome
+          .fab{
+              border-radius:50%;
+              font-size:1rem;
+              width: 30px;
+              height: 30px;
+              line-height: 30px;
+              text-align: center;
+              color: white;
+              &:hover {
+                  color: green;
+              }
+          }
+          .fa-facebook{background-color:#3C599F;} 
+          .fa-twitter{background-color:#32CCFE;}
+          .fa-youtube{background-color:#C52F30;}
+      }
+      
+  }   */
 }
 footer address {
-  margin-left: 5rem;
+  /* margin-left:5rem; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-footer ul li {
-  display: inline-block;
-  padding-right: 0.2rem;
-  padding-left: 0.5rem;
-  margin-bottom: 10px;
-}
-footer ul li .fab {
-  border-radius: 50%;
-  font-size: 1rem;
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  text-align: center;
-  color: white;
-}
-footer ul li .fab:hover {
-  color: green;
-}
-footer ul li .fa-facebook {
-  background-color: #3C599F;
-}
-footer ul li .fa-twitter {
-  background-color: #32CCFE;
-}
-footer ul li .fa-youtube {
-  background-color: #C52F30;
-}
 
 .control-group {
-  display: flex;
-  justify-content: space-between;
+  display: inline-block;
   width: 100%;
   margin-top: 0.3rem;
   margin-bottom: 0.3rem;
   padding: 1rem;
 }
+.control-group input {
+  margin-top: 0.5rem;
+}
 
 form {
-  width: 50%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -356,8 +356,24 @@ form fieldset {
     margin-right: auto;
   }
 
-  footer address {
-    margin-left: 10rem;
+  .control-group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    padding: 1rem;
+  }
+
+  form {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  form fieldset {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 }
 /* Estructura de la mediaquery para escritorio*/
@@ -428,10 +444,6 @@ form fieldset {
     height: 360px;
     width: 640px;
     padding-bottom: 25rem;
-  }
-
-  footer address {
-    margin-left: 20rem;
   }
 }
 

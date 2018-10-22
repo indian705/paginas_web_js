@@ -10,15 +10,15 @@
     <link href="https://fonts.googleapis.com/css?family=Galada" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/about.js"></script>
+
 </head>
 <body>
-    <header id="inicio">
+    <header id="inicio" class="normal-header">
         <h1>Cantabria <span class="subtitulo">Un paraíso de mar y montaña</span> </h1>
         <nav>
-            <a class="fas fa-bars" href="#bottom-menu"></a>
-        </nav>
-        <nav id="top-menu" class="hide-menu menu-desk">
-            <ul>
+            <a id="menu-hamburguesa" class="fas fa-bars"></a>
+            <ul id="contenido-hamburguesa" class="hide-menu">
                 <li>
                     <a href="./index.html#inicio">Inicio</a>
                 </li>
@@ -39,79 +39,105 @@
                 </li>
             </ul>
         </nav>
-    </header>
-        <main class="main_wrapper">
-            <section>
-                <h2>Acerca de</h2>
-                <p>Esta web ha sido creada como homenaje a Cantabria, sus lugares y sus gentes.</p>
-                <p>La Asociación Amigos de Cantabria es una asociación sin ánimo de lucro con la misión de difundir la cultura y las maravillas que hay en esta región.</p>
-                <p>Se permite el ingreso en la Asociación a cualquier simpatizante de Cantabria, resida o no en esta Comunidad Autónoma.  También se agradece cualquier aportación de contenido a la web.</p>
-            </section>
-            <section>
-                <p>Si quiere recibir más información o que le enviemos nuestro boletín semanal de forma gratuita, rellene el siguiente formulario.</p>
-                <form id="form1" action="">
-                    <fieldset>
-                        <legend>Formulario de contacto</legend>
-                        <div class="control-group">
-                            <label for="nombre">Nombre (campo obligatorio):</label>
-                            <input type="text" name="nombre" id="nombre" required>
-                                                       
-                        </div>
-                        <div class="control-group">
-                            <label for="apellido">Apellido:</label>
-                            <input type="text" name="apellido" id="apellido"> 
-                        </div>
-                        <div class="control-group">
-                            <label for="">Correo (campo obligatorio):</label>
-                            <input type="email" name="" id="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
-                        </div>
-
-                        <div class="control-group">
-                                <label for="telefono">Teléfono:</label>
-                                <input type="tel" placeholder="34-XXXXXXXXX" pattern="^(\+34|0034|34)?-[6|7|9][0-9]{8}$"
-                                name="telefono" id="telefono">
-                        </div>
-                        
-                        <div class="control-group">
-                            <label for=mensaje>Mensaje:</label>
-                            <textarea name="mensaje" id="mensaje" cols="50" rows="10"
-                            placeholder="Escriba aquí el mensaje que desee transmitirnos"></textarea>
-                            
-                        </div>  
-                        <div class="control-group">
-                            <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
-                            Deseo recibir el boletín de la Asociación
-                            </label>
-                        </div>
-                    </fieldset>
-                    
-                    <button type="submit" id="enviar" class="btn btn-primary">Enviar</button>
-                </form>
-            </section>
-        </main>
-        <nav id="bottom-menu" class="menu-mobile main_wrapper">
+        <nav id="top-menu" class="hide-menu menu-desk">
             <ul>
                 <li>
-                    <a href="./index.html">Inicio</a>
+                    <a data-index=0 href="./index.html">Inicio</a>
                 </li>
                 <li>
-                    <a href="./index.html#geo">Geografía</a>
+                    <a data-index=1 href="./index.html#geo">Geografía</a>
                 </li>
                 <li>
-                    <a href="./index.html#histo">Historia</a>
+                    <a data-index=2 href="./index.html#histo">Historia</a>
                 </li>
                 <li>
-                    <a href="./index.html#eco">Economía</a>
+                    <a data-index=3 href="./index.html#eco">Economía</a>
                 </li>
                 <li>
-                    <a href="./index.html#fiestas">Fiestas</a>
+                    <a data-index=4 href="./index.html#fiestas">Fiestas</a>
                 </li>
                 <li>
-                    <a href="./about.html">Acerca de</a>
+                    <a href="./about.html" class="active">Acerca de</a>
                 </li>
             </ul>
         </nav>
+    </header>
+    <div id="bajo-header" class="bajo-header hide"></div>
+    <main class="main_wrapper">
+        <section>
+            <h2>Acerca de</h2>
+            <p>Esta web ha sido creada como homenaje a Cantabria, sus lugares y sus gentes.</p>
+            <p>La Asociación Amigos de Cantabria es una asociación sin ánimo de lucro con la misión de difundir la cultura y las maravillas que hay en esta región.</p>
+            <p>Se permite el ingreso en la Asociación a cualquier simpatizante de Cantabria, resida o no en esta Comunidad Autónoma.  También se agradece cualquier aportación de contenido a la web.</p>
+        </section>
+        <section>
+            <p>Si quiere recibir más información o que le enviemos nuestro boletín semanal de forma gratuita, rellene el siguiente formulario.</p>
+            <form id="form1" action="">
+                <fieldset>
+                    <legend>Formulario de contacto</legend>
+                    <div class="control-group">
+                        <label for="nombre">Nombre (campo obligatorio): </label>
+                        <input type="text" name="nombre" id="nombre" required>
+                                                    
+                    </div>
+                    <div class="control-group">
+                        <label for="apellido">Apellido: </label>
+                        <input type="text" name="apellido" id="apellido"> 
+                    </div>
+                    <div class="control-group">
+                        <label for="">Correo (campo obligatorio) :</label>
+                        <input type="email" name="" id="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                    </div>
+
+                    <div class="control-group">
+                            <label for="telefono">Teléfono:</label>
+                            <input type="tel" placeholder="34-XXXXXXXXX" pattern="^(\+34|0034|34)?-[6|7|9][0-9]{8}$"
+                            name="telefono" id="telefono">
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for=mensaje>Mensaje:</label>
+                        <textarea name="mensaje" id="mensaje" cols="50" rows="10"
+                        placeholder="Escriba aquí el mensaje que desee transmitirnos"></textarea>
+                        
+                    </div>  
+                    <div class="control-group">
+                        <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue">
+                        Deseo recibir el boletín de la Asociación
+                        </label>
+                    </div>
+                </fieldset>
+                
+                <button type="submit" id="enviar" class="btn btn-primary">Enviar</button>
+            </form>
+        </section>
+    </main>
+    <div id="div-top" class="div-top hide">
+        <div id="btn-top" class="btn-top">Subir ⬆️</div>        
+    </div>
+    <nav id="bottom-menu" class="menu-mobile main_wrapper">
+        <ul>
+            <li>
+                <a href="./index.html">Inicio</a>
+            </li>
+            <li>
+                <a href="./index.html#geo">Geografía</a>
+            </li>
+            <li>
+                <a href="./index.html#histo">Historia</a>
+            </li>
+            <li>
+                <a href="./index.html#eco">Economía</a>
+            </li>
+            <li>
+                <a href="./index.html#fiestas">Fiestas</a>
+            </li>
+            <li>
+                <a href="./about.html">Acerca de</a>
+            </li>
+        </ul>
+    </nav>
     <footer>
         <address>
                 
@@ -125,11 +151,11 @@
                 </p>    
     
         </address>
-        <ul class="social-icons icon-circle">                
+        <!-- <ul class="social-icons icon-circle">                
             <li> <a href="#"><i class="fab fa-facebook"></i></a></li>                 
             <li> <a href="#"><i class="fab fa-twitter"></i></a></li>            
             <li> <a href="#"><i class="fab fa-youtube"></i></a></li>            
-        </ul> 
+        </ul>  -->
              
     </footer>
 </body>
