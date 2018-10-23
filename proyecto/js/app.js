@@ -25,6 +25,7 @@ class App {
         this.aOffset = []
         this.calcularOffsets()
         this.seccionActiva = 0
+        this.index=0
 
         //Definición de handlers
         document.addEventListener('scroll', this.scrollDetect.bind(this) )
@@ -42,12 +43,7 @@ class App {
                 nodoMenu.addEventListener('click', this.navegar.bind(this))}
         )
         window.addEventListener('resize',this.calcularOffsets.bind(this)) 
-
-        this.aNodosMenu.forEach(
-            (nodoMenu) => {
-                nodoMenu.classList.remove('active')}
-        )
-        this.aNodosMenu[index].classList.add('active')   
+       
         
     }   
 
@@ -60,32 +56,27 @@ class App {
         this.contenidoHamburguesa.classList.add('hide-menu')
     }
     
-    scrollDetect (oE) {
-        
-        let position = oE.target.scrollingElement.scrollTop
-        let index
+    scrollDetect (oE) {        
+        let position = oE.target.scrollingElement.scrollTop     
         
         this.aOffset.every(
             (offset, i) => {
                 if (position >= offset) {
-                    index = i
+                    this.index = i
                     return true
                 } else {return false}           
             }
         )    
     
-        if (this.seccionActiva != index) {            
+        if (this.seccionActiva != this.index) {            
             this.aNodosMenu.forEach(
                 (nodoMenu) => {
                     
                     nodoMenu.classList.remove('active')}
             )
-            console.log('Hola')
-            console.dir(this.aNodosMenu)
-            console.log(index)
-            console.dir(this.aNodosMenu[index])
-            this.aNodosMenu[index].classList.add('active')   
-            this.seccionActiva = index
+            
+            this.aNodosMenu[this.index].classList.add('active')   
+            this.seccionActiva = this.index
         }
         if (position> 30) {
             this.header.classList.add('sticky-header')
