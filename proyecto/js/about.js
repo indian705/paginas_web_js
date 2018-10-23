@@ -18,8 +18,6 @@ class App {
         this.contenidoHamburguesa = document.querySelector('#contenido-hamburguesa')
         this.itemHamburguesa = document.querySelectorAll('#contenido-hamburguesa a')
 
-        this.aOffset = []
-        this.calcularOffsets()
         this.seccionActiva = 0
 
         document.addEventListener('scroll', this.scrollDetect.bind(this) )
@@ -47,18 +45,7 @@ class App {
     scrollDetect (oE) {
         
         let position = oE.target.scrollingElement.scrollTop
-        let index         
-
-        this.aOffset.every(
-            (offset, i) => {
-                if (position >= offset) {
-                    index = i
-                    return true
-                } else {return false}
-               
-
-            }
-        )
+        
         
         if (position> 30) {
             this.header.classList.add('sticky-header')
