@@ -53,6 +53,10 @@ body {
   margin-top: 2%;
   font-weight: bold;
 }
+.normal-header .relativo {
+  position: absolute;
+  right: 0;
+}
 
 nav {
   font-size: 1rem;
@@ -251,6 +255,16 @@ div.div-top .btn-top {
   font-size: 1rem;
   cursor: pointer;
   color: aquamarine;
+}
+
+.mas {
+  display: inline-block;
+  border: 1px solid gainsboro;
+  background-color: #790606;
+  color: aquamarine;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-style: italic;
 }
 
 footer {

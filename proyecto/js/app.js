@@ -3,24 +3,20 @@ class App {
     constructor () {
         this.btnTop = document.querySelector('#btn-top')
         this.divTop = document.querySelector('#div-top')
-        
-        //this.parrafoHeader = document.querySelector('header p')
-        
+        this.aBtnMas = document.querySelectorAll('.mas')        
 
-       this.aNodosMenu = document.querySelectorAll('.menu-desk a')
-       this.aNodosSection = document.querySelectorAll('main section')
+        this.aNodosMenu = document.querySelectorAll('.menu-desk a')
+        this.aNodosSection = document.querySelectorAll('main section')
 
         this.header = document.querySelector('header')
         this.bajoHeader = document.querySelector('#bajo-header')
         this.nodoh1 = document.querySelector('h1')
-
         
         this.btnTop.addEventListener('click', this.subir.bind(this)) 
 
         this.menuHamburguesa = document.querySelector('#menu-hamburguesa')
         this.contenidoHamburguesa = document.querySelector('#contenido-hamburguesa')
         this.itemHamburguesa = document.querySelectorAll('#contenido-hamburguesa a')
-
         
         this.slideInterval = 3000
         this.aFigure = document.querySelectorAll('figure')
@@ -30,7 +26,12 @@ class App {
         this.calcularOffsets()
         this.seccionActiva = 0
 
+        //Definición de handlers
         document.addEventListener('scroll', this.scrollDetect.bind(this) )
+
+        this.aBtnMas.forEach(
+            (btn) => {btn.addEventListener('click', this.mostrar.bind(this))}
+        )
 
         this.menuHamburguesa.addEventListener('click', this.desplegarMenu.bind(this))
         this.itemHamburguesa.forEach(
@@ -38,20 +39,14 @@ class App {
         )
         this.aNodosMenu.forEach(
             (nodoMenu) => {
-                //console.log(nodoMenu)
                 nodoMenu.addEventListener('click', this.navegar.bind(this))}
         )
-        //window.addEventListener('resize',this.calcularOffsets.bind(this)) 
+        window.addEventListener('resize',this.calcularOffsets.bind(this)) 
 
         this.aNodosMenu.forEach(
             (nodoMenu) => {
-                //console.dir(nodoMenu)
                 nodoMenu.classList.remove('active')}
         )
-        /* console.log('Hola')
-        console.dir(this.aNodosMenu)
-        console.log(index)
-        console.dir(this.aNodosMenu[index]) */
         this.aNodosMenu[index].classList.add('active')   
         
     }   
@@ -59,8 +54,6 @@ class App {
     desplegarMenu(){
         this.contenidoHamburguesa.classList.toggle('hide-menu')
         this.contenidoHamburguesa.classList.add('menu-mobilesticky')
-        /* this.contenidoHamburguesa.parentNode.classList.add('menu-mobilesticky') */
-
     }
 
     replegarMenu(){
@@ -70,58 +63,27 @@ class App {
     scrollDetect (oE) {
         
         let position = oE.target.scrollingElement.scrollTop
-        let index = 0
-        /* let position = window.scrollY
-         
-        /* this.aNodosSection.forEach(
-            (section) => {
-                //console.dir(section.offsetParent) para comprobar que todas las secciones como ancestro el body de cara a offset
-                //this.aOffset.push(section.offsetTop-this.navHeight)
-                
-                this.aOffset.push(section.offsetTop)
-            }
-        )
-        this.aOffset[0] = 0 */
-
+        let index
+        
         this.aOffset.every(
             (offset, i) => {
                 if (position >= offset) {
                     index = i
                     return true
-                } else {return false}
-               
-
+                } else {return false}           
             }
-        )
-         
-        
-        /* this.aOffset.every(
-            (offset, i) => {
-                if (position >= offset) {
-                    
-                    console.log(offset)
-                    console.log(i)
-                    console.log(position)
-                    index = i
-                    return true
-                } else {return false}
-               
-
-            }
-        ) */
-        //console.log(index)
-        if (this.seccionActiva != index) {
-            //console.log('Estoy dentro')
-            //console.dir(this.aNodosMenu)
+        )    
+    
+        if (this.seccionActiva != index) {            
             this.aNodosMenu.forEach(
                 (nodoMenu) => {
-                    //console.dir(nodoMenu)
+                    
                     nodoMenu.classList.remove('active')}
             )
-            /* console.log('Hola')
+            console.log('Hola')
             console.dir(this.aNodosMenu)
             console.log(index)
-            console.dir(this.aNodosMenu[index]) */
+            console.dir(this.aNodosMenu[index])
             this.aNodosMenu[index].classList.add('active')   
             this.seccionActiva = index
         }
@@ -129,14 +91,12 @@ class App {
             this.header.classList.add('sticky-header')
             this.header.classList.remove('normal-header')
             this.nodoh1.classList.add('hide')
-            //this.parrafoHeader.classList.add('hide')
             this.bajoHeader.classList.add('bajo-header')
             this.bajoHeader.classList.remove('hide')
         } else {
             this.header.classList.remove('sticky-header')
             this.header.classList.add('normal-header')
             this.nodoh1.classList.remove('hide')
-            //this.parrafoHeader.classList.remove('hide')
             this.bajoHeader.classList.remove('bajo-header')
             this.bajoHeader.classList.add('hide')
         }
@@ -152,26 +112,20 @@ class App {
         if (i<5){
             oE.preventDefault()
             window.scroll({
-            top: this.aOffset[i], 
-            left: 0, 
-            behavior: 'smooth'
-        })
-        }       
-        
-
+                top: this.aOffset[i], 
+                left: 0, 
+                behavior: 'smooth'
+            })
+        }              
     }
 
     calcularOffsets(){
         this.aNodosSection.forEach(
-            (section) => {
-                //console.dir(section.offsetParent) para comprobar que todas las secciones como ancestro el body de cara a offset
-                //this.aOffset.push(section.offsetTop-this.navHeight)
-                
+            (section) => {             
                 this.aOffset.push(section.offsetTop-170)
             }
         )
-        this.aOffset[0] = 0
-        //console.log(this.aOffset)
+        this.aOffset[0] = 0        
     }
 
     subir(oE) {
@@ -181,6 +135,17 @@ class App {
             left: 0, 
             behavior: 'smooth'
         })
+    }
+
+    mostrar(oE){
+        let nodoBtn = oE.target
+        let nodoTxt = nodoBtn.previousElementSibling
+        nodoTxt.classList.toggle('hide')
+        if (nodoTxt.classList.contains('hide')){
+            nodoBtn.textContent = "Ver más"
+        } else{
+            nodoBtn.textContent = "Ver menos"
+        }
     }
 
     avanzar(){
